@@ -19,7 +19,7 @@ body {
     align-items: center;
     justify-content: center;
     
-    background-image: url(images/background.svg);
+    background-image: url("images/background.svg");
     
     font-family: Sans-Serif;
 }
