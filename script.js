@@ -5,10 +5,13 @@ const nextBtn = document.querySelector('#next-song');
 const audio = document.querySelector('#audio');
 const progress = document.querySelector('.progress');
 const progressContainer = document.querySelector('.progress-container');
-const title = document.querySelector('#title');
 const cover = document.querySelector('#cover');
+const title = document.querySelector('.song-title');
+const musician = document.querySelector('.artist');
+const aside = document.querySelector('aside');
+const timer = document.querySelector('.timer');
 
-//Song Titles
+//Song Titles and Artists
 const songs = [
     'Black Sheep', 
     'Cabin Fever',
@@ -16,25 +19,34 @@ const songs = [
     'High Hopes',
     'iSpy',
     'Plastic Love'];
+const artists = [
+    'Metric',
+    'Corpse Husband',
+    "World's End Girlfriend",
+    'Panic at the Disco',
+    'Kyle (feat. Lil Yachty)',
+    'Mariya Takeuchi']
 //Track songs
 let songIndex = 4;
 //Init Song Load
-loadSong(songs[songIndex]);
-function loadSong(song) {
+loadSong(songs[songIndex], artists[songIndex]);
+function loadSong(song, artist) {
     title.innerText = song;
+    musician.innerText = artist;
+    
     audio.src = `music/${song}.mp3`;
     cover.src = `images/${song}.png`;
 }
 //Functions
 function playSong() {
-    musicContainer.classList.add('play');
+    aside.classList.add('play');
     playBtn.querySelector('i.fas').classList.remove('fa-play');
     playBtn.querySelector('i.fas').classList.add('fa-pause');
     
     audio.play();
 }
 function pauseSong() {
-    musicContainer.classList.remove('play');
+    aside.classList.remove('play');
     playBtn.querySelector('i.fas').classList.add('fa-play');
     playBtn.querySelector('i.fas').classList.remove('fa-pause');
     
@@ -45,7 +57,7 @@ function prevSong() {
     if(songIndex < 0) {
         songIndex = songs.length - 1;
     }
-    loadSong(songs[songIndex]);
+    loadSong(songs[songIndex], artists[songIndex]);
     playSong();
 }
 function nextSong() {
@@ -53,7 +65,7 @@ function nextSong() {
     if(songIndex > songs.length - 1) {
         songIndex = 0;
     }
-    loadSong(songs[songIndex]);
+    loadSong(songs[songIndex], artists[songIndex]);
     playSong();
 }
 
@@ -61,6 +73,7 @@ function updateProgress(e) {
     const {duration, currentTime} = e.srcElement;
     const progressPercent = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`;
+    timer.innerText = `${currentTime} / ${duration}`;
 }
 function setProgress(e) {
     const width = this.clientWidth;
@@ -71,7 +84,7 @@ function setProgress(e) {
 }
 //Event Listeners
 playBtn.addEventListener('click', () => {
-    const isPlaying = musicContainer.classList.contains('play');
+    const isPlaying = aside.classList.contains('play');
     
     if(isPlaying) {
         pauseSong()
