@@ -140,3 +140,19 @@ body {
 
     transition: width 0.1s linear;
 }
+
+@media screen and (max-width: 480px){
+    .music-container{
+        width: calc(100% - 5px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .img-container::after {
+        transform: translate(-50%, -200%);
+    }
+    .music-info {
+        height: 125%;
+        padding: 10px;
+    }
+}
