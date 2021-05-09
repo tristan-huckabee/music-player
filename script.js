@@ -72,8 +72,13 @@ function nextSong() {
 function updateProgress(e) {
     const {duration, currentTime} = e.srcElement;
     const progressPercent = (currentTime / duration) * 100;
+    const currentMin = floor(currentTime / 60);
+    const currentSec = floor(currentTime % 60);
+    const totalMin = floor(duration / 60);
+    const totalSec = floor(duration % 60);
+    
     progress.style.width = `${progressPercent}%`;
-    timer.innerText = `${floor(currentTime / 60)}:${floor(currentTime % 60)} / ${floor(duration / 60)}:${floor(duration % 60}`;
+    timer.innerText = `${currentMin}:${currentSec} / ${totalMin}:${totalSec}`;
 }
 function setProgress(e) {
     const width = this.clientWidth;
