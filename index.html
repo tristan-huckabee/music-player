@@ -10,29 +10,35 @@
     <title>Music Player</title>
 </head>
 <body>
-    <div class="music-container">
-        <div class="music-info">
-            <h4 id="title">Ukelele</h4>
-            <div class="progress-container">
-                <div class="progress"></div>
+    <aside>
+        <div class="music-container">
+            <div class="music-info">
+                <div class="timer"></div>
+                <div class="progress-container">
+                    <div class="progress"></div>
+                </div>
+            </div>
+            <audio src="music/iSpy.mp3" id="audio"></audio>
+            <div class="img-container">
+                <img src="images/iSpy.png" alt="Music Cover" id="cover">
+            </div>
+            <div class="navigation">
+                <button id="previous-song" class="action-btn">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button id="play-pause" class="action-btn action-btn-lg">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button id="next-song" class="action-btn">
+                    <i class="fas fa-forward"></i>
+                </button>
             </div>
         </div>
-        <audio src="music/iSpy.mp3" id="audio"></audio>
-        <div class="img-container">
-            <img src="images/iSpy.png" alt="Music Cover" id="cover">
+        <div class="songs">
+            <h3 class="song-title">Title</h3>
+            <p class="artist">Artist</p>
         </div>
-        <div class="navigation">
-            <button id="previous-song" class="action-btn">
-                <i class="fas fa-backward"></i>
-            </button>
-            <button id="play-pause" class="action-btn action-btn-lg">
-                <i class="fas fa-play"></i>
-            </button>
-            <button id="next-song" class="action-btn">
-                <i class="fas fa-forward"></i>
-            </button>
-        </div>
-    </div>
+    </aside>
     
     <script src="https://kit.fontawesome.com/ca5925ae4e.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
