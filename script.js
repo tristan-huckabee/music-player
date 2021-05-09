@@ -73,7 +73,7 @@ function updateProgress(e) {
     const {duration, currentTime} = e.srcElement;
     const progressPercent = (currentTime / duration) * 100;
     progress.style.width = `${progressPercent}%`;
-    timer.innerText = `${getMinutes(currentTime)}:${getSeconds(currentTime)} / ${duration / 60}:${duration % 60}`;
+    timer.innerText = `${floor(currentTime / 60)}:${floor(currentTime % 60)} / ${floor(duration / 60)}:${floor(duration % 60}`;
 }
 function setProgress(e) {
     const width = this.clientWidth;
