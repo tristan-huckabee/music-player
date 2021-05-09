@@ -19,7 +19,8 @@ body {
     align-items: center;
     justify-content: center;
     
-    background-image: url("images/background.svg");
+    background-color: #fff;
+    background-image: url("https://vectr.com/bramblegunt/gSXYrxctA.svg?width=300&height=300&select=gSXYrxctApage0");
     
     font-family: Sans-Serif;
 }
@@ -27,7 +28,8 @@ body {
 .music-container {
     position: relative;
     display: flex;
-    margin: 100px 0;
+    align-items: center;
+    margin: 10px 0;
     padding:20px 30px;
     z-index: 10;
     
@@ -36,7 +38,7 @@ body {
     border-radius: 15px;
     box-shadow: 0 20px 20px 0 #222;
 }
-.music-container.play .img-container img {
+aside.play .img-container img {
     animation-play-state: running;
 }
 .img-container {
@@ -117,7 +119,7 @@ body {
 .music-info h4 {
     margin: 0;
 }
-.music-container.play .music-info {
+aside.play .music-info {
     opacity: 1;
     transform: translateY(-100%);
 }
@@ -140,6 +142,29 @@ body {
 
     transition: width 0.1s linear;
 }
+
+aside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.songs {
+    opacity: 0;
+    
+    width: 90%;
+    margin:0;
+    padding:5px 30px;
+    z-index: 10;
+    
+    background-color: #fff;
+    
+    border-radius: 15px;
+    box-shadow: 0 20px 20px 0 #222;
+}
+aside.play .songs {
+    opacity: 1;
+}
+
 
 @media screen and (max-width: 480px){
     .music-container{
